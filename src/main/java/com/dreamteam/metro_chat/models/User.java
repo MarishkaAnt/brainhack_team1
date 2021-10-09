@@ -5,7 +5,7 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "users")
-public class SubwayLine {
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -14,10 +14,10 @@ public class SubwayLine {
     @Column
     private String name;
 
-    public SubwayLine() {
+    public User() {
     }
 
-    public SubwayLine(String name) {
+    public User(String name) {
         this.name = name;
     }
 
@@ -39,22 +39,19 @@ public class SubwayLine {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o)
-            return true;
-        if (o == null || getClass() != o.getClass())
-            return false;
-        SubwayLine chat = (SubwayLine) o;
-        return id.equals(chat.id) && name.equals(chat.name);
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return id.equals(user.id) && name.equals(user.name);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(this.id, this.name);
+        return Objects.hash(id, name);
     }
 
     @Override
     public String toString() {
-        return "Chat{" + "id=" + this.id + ", chat_name='" + this.name + '}';
+        return "User{" + "id=" + id + ", name='" + name + '\'' + '}';
     }
-
 }
